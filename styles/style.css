@@ -30,18 +30,28 @@
 }
 .body-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 2px 15%;
 }
 .jobs-container {
-  padding: 8px;
+  width: min-content;
+  flex-grow: 1;
+  flex: content;
+}
+.jobs-header {
+  padding: 08px;
   margin: 5px;
   border: solid 1px black;
   border-radius: 10px;
-  align-self: flex-start;
+}
+.job-details-container-null {
+  flex-grow: 3;
+  padding: 10px;
+  border-radius: 10px;
 }
 .job-details-container {
-  flex-grow: 5;
+  flex-grow: 3;
+  padding: 10px;
   border: solid 1px black;
   border-radius: 10px;
 }
@@ -101,8 +111,10 @@
   flex-grow: 3;
   outline: none;
 }
-
 .nav-item:hover {
   border-bottom: 5px solid rgb(82, 209, 131);
+  background-color: aliceblue;
+}
+.jobs-header:hover {
   background-color: aliceblue;
 }
