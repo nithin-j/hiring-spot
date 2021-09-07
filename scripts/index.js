@@ -38,16 +38,17 @@ function fnShowJobDesc(e, list) {
   }
   job ? fnRenderJobDetails(job) : '';
 }
+
 function fnRenderJobDetails(list) {
   jobDetails = '';
 
   jobDetails = `${jobDetails}
                     <div class="jobs-body">
-                    <h1 id="title-el-${list.jobId}" class="job-title"" >${list.jobTitle}</h1>
-                    <p id="company-el">${list.companyName}</p>
-                    <p id="province-el">${list.Province}</p>
-                    <h2 id="pay-el">$${list.jobPay} an hour</h2>
-                    <p id="job-shot-description-el">${list.jobDescription}</p> 
+                    <h1  class="desc-job-title-el"" >${list.jobTitle}</h1>
+                    <p id="desc-company-el">${list.companyName}</p>
+                    <p id="desc-province-el">${list.Province} * ${list.jobType}</p>
+                    <h2 id="desc-pay-el">$${list.jobPay} an hour</h2>
+                    <p id="desc-job-shot-description-el">${list.jobDescription}</p> 
     </div>`;
 
   jobDescriptionEl.className = 'job-details-container';

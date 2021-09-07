@@ -49,14 +49,23 @@
   padding: 10px;
   border-radius: 10px;
 }
-.job-details-container {
-  flex-grow: 2;
+.jobs-body {
+  margin-top: 150px;
   padding: 10px;
+  background-color: white;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+.job-details-container {
+  background-position: left;
+  background-image: url('../images/job-details-bkg.jpg');
+  flex-grow: 2;
   border: solid 1px rgb(189, 189, 189);
   max-width: 700px;
   align-self: flex-start;
   border-radius: 10px;
 }
+
 .header-container {
   padding: 5px;
   margin: 2px 20%;
