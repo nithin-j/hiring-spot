@@ -22,6 +22,7 @@
           <div class="header-item keyword hdr-margin">
             <label for="key-inp" class="lbl-generic lbl-input">What: </label>
             <input
+              placeholder="enter job title"
               type="text"
               name="key-inp"
               id="keyword-inp"
@@ -33,6 +34,7 @@
               >Location:
             </label>
             <input
+              placeholder="enter city, province"
               type="text"
               name="key-inp"
               id="location-inp"
@@ -42,12 +44,13 @@
           <button class="btn-search hdr-margin" id="search-btn">Search</button>
         </div>
       </div>
-      <div class="body-container">
-        <div class="jobs-container" id="jobs-header-el"></div>
+      <div class="body-container" ondblclick="">
+        <div class="jobs-container" id="jobs-container-el"></div>
         <div class="job-details-container-null" id="job-description-el"></div>
       </div>
     </div>
 
     <script type="module" src="./scripts/index.js"></script>
+    <script src="./scripts/functions.js"></script>
   </body>
 </html>

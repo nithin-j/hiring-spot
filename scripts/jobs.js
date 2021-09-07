@@ -1,6 +1,6 @@
 const jobs = [
   {
-    jobId: 1,
+    jobId: 0,
     jobTitle: 'Jr Web Developer',
     companyName: 'ABC Solutions',
     Province: 'Alberta',
@@ -11,7 +11,7 @@ const jobs = [
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure veritatis quos earum quasi qui, dicta rem, porro omnis quaerat, vero quod? Aspernatur nulla reiciendis harum perspiciatis nostrum quaerat magni!Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure veritatis quos earum quasi qui, dicta rem, porro omnis quaerat, vero quod? Aspernatur nulla reiciendis harum perspiciatis nostrum quaerat magni!`,
   },
   {
-    jobId: 2,
+    jobId: 1,
     jobTitle: 'Software Engineer',
     companyName: 'Innova Technologies',
     Province: 'Manitoba',
@@ -21,7 +21,7 @@ const jobs = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure veritatis quos earum quasi qui, dicta rem, porro omnis quaerat, vero quod? Aspernatur nulla reiciendis harum perspiciatis nostrum quaerat magni!',
   },
   {
-    jobId: 3,
+    jobId: 2,
     jobTitle: 'Applications Analyst',
     companyName: 'Integral Enterprise Solutions',
     Province: 'Montreal',
@@ -31,9 +31,19 @@ const jobs = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure veritatis quos earum quasi qui, dicta rem, porro omnis quaerat, vero quod? Aspernatur nulla reiciendis harum perspiciatis nostrum quaerat magni!',
   },
   {
-    jobId: 4,
-    jobTitle: 'Applications Analyst',
+    jobId: 3,
+    jobTitle: 'Consultant Service Desk',
     companyName: 'Integral Enterprise Solutions',
+    Province: 'Montreal',
+    jobType: 'Bilingual | Temporarily Remote | Permanent',
+    jobPay: 20.0,
+    jobDescription:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus iure veritatis quos earum quasi qui, dicta rem, porro omnis quaerat, vero quod? Aspernatur nulla reiciendis harum perspiciatis nostrum quaerat magni!',
+  },
+  {
+    jobId: 4,
+    jobTitle: 'Applcations Developer',
+    companyName: 'ZeroBugs Solutions',
     Province: 'Montreal',
     jobType: 'Bilingual | Temporarily Remote | Permanent',
     jobPay: 20.0,

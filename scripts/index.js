@@ -1,40 +1,106 @@
 import jobsObject from './jobs.js';
 
-const jobsHeader = document.querySelector('#jobs-header-el');
-const jobDescription = document.querySelector('#job-description-el');
-const jobsHeaderEl = document.getElementById('jobs-header-el');
+const jobsContainer = document.querySelector('#jobs-container-el');
+const jobDescriptionEl = document.querySelector('#job-description-el');
+
+const keywordInp = document.querySelector('#keyword-inp');
+const locationInp = document.querySelector('#location-inp');
+const searchBtn = document.querySelector('#search-btn');
 
 let jobItems = '';
-let id = 0;
-const jobs = jobsObject.map((job) => {
+let jobDetails = '';
+const allJobs = jobsObject.map((job) => {
   return job;
 });
 
-console.log(jobs);
-jobs.forEach((job) => {
-  jobItems = `${jobItems} 
-                <div class="jobs-header" id="jobs-header-el-${job.jobId}">
-                <div id="${job.jobId}"></div>
-                <h1 id="title-el" >${job.jobTitle}</h1>
-                <p id="company-el">${job.companyName}</p>
-                <p id="province-el">${job.Province} * <span>${
-    job.jobType
-  }</span></p>
-                <h2 id="pay-el">$${job.jobPay} an hour</h2>
-                <p id="job-shot-description-el">${job.jobDescription.substring(
-                  0,
-                  150
-                )}</p> 
-                </div>`;
+fnRender(allJobs);
+
+//EVENT LISTENERS
+searchBtn.addEventListener('click', () => {
+  fnSearch(allJobs);
 });
 
-jobsHeader.innerHTML = jobItems;
-
-jobsHeaderEl.addEventListener('click', function (e) {
-  fnShowJobDesc();
+document.addEventListener('click', function (e) {
+  fnShowJobDesc(e, allJobs);
 });
 
-function fnShowJobDesc() {
-  jobDescription.className = 'job-details-container';
-  console.log('test');
+//FUNCTIONS
+
+function fnShowJobDesc(e, list) {
+  const len = allJobs.length;
+  let job = '';
+  console.log(len);
+  for (let i = 0; i < len; i++) {
+    if (e.target && e.target.id == `title-el-${i}`) {
+      job = allJobs.find((job) => job.jobId === i);
+      console.log(job);
+    }
+  }
+  job ? fnRenderJobDetails(job) : '';
+}
+function fnRenderJobDetails(list) {
+  jobDetails = '';
+
+  jobDetails = `${jobDetails}
+                    <div class="jobs-body">
+                    <h1 id="title-el-${list.jobId}" class="job-title"" >${list.jobTitle}</h1>
+                    <p id="company-el">${list.companyName}</p>
+                    <p id="province-el">${list.Province}</p>
+                    <h2 id="pay-el">$${list.jobPay} an hour</h2>
+                    <p id="job-shot-description-el">${list.jobDescription}</p> 
+    </div>`;
+
+  jobDescriptionEl.className = 'job-details-container';
+  jobDescriptionEl.innerHTML = jobDetails;
+}
+function fnRender(list) {
+  list.forEach((job) => {
+    jobItems = `${jobItems} 
+                      <div class="jobs-header">
+                      <h1 id="title-el-${job.jobId}" class="job-title"" >${
+      job.jobTitle
+    }</h1>
+                      <p id="company-el">${job.companyName}</p>
+                      <p id="province-el">${job.Province}</p>
+                      <h2 id="pay-el">$${job.jobPay} an hour</h2>
+                      <p id="job-shot-description-el">${job.jobDescription.substring(
+                        0,
+                        150
+                      )}</p> 
+                      </div>`;
+  });
+
+  jobsContainer.innerHTML = jobItems;
+}
+
+function fnSearch(jobList) {
+  let searchList = '';
+  const keyword = keywordInp.value ? keywordInp.value : 'all';
+  const location = locationInp.value ? locationInp.value : 'all';
+
+  if (keyword === 'all' && location === 'all') {
+    searchList = jobList;
+  } else if (keyword != 'all' && location === 'all') {
+    searchList = jobList.filter(
+      (list) => list.jobTitle.toLowerCase() == keyword.toLowerCase()
+    );
+  } else if (keyword === 'all' && location != 'all') {
+    searchList = jobList.filter(
+      (list) => list.Province.toLowerCase() == location.toLowerCase()
+    );
+  } else if (keyword != 'all' && location != 'all') {
+    searchList = jobList.filter((list) => {
+      list.Province.toLowerCase() == location.toLowerCase();
+      list.jobTitle.toLowerCase() == keyword.toLowerCase();
+    });
+  }
+  jobItems = '';
+  fnRender(searchList);
+}
+
+function fnSearchJobs(keyword, location, jobList) {
+  const searchList = jobList.filter(
+    (list) => list.Province.toLowerCase() == location.toLowerCase()
+  );
+  return searchList;
 }
