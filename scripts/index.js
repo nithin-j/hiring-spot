@@ -21,7 +21,12 @@ searchBtn.addEventListener('click', () => {
 });
 
 document.addEventListener('click', function (e) {
-  fnShowJobDesc(e, allJobs);
+  if (e.target && e.target.id == `btn-close`) {
+    jobDescriptionEl.innerHTML = '';
+    jobDescriptionEl.className = 'job-details-container-null';
+  } else {
+    fnShowJobDesc(e, allJobs);
+  }
 });
 
 //FUNCTIONS
@@ -43,6 +48,7 @@ function fnRenderJobDetails(list) {
   jobDetails = '';
 
   jobDetails = `${jobDetails}
+                    <div class="close-btn" id="btn-close">X</div>
                     <div class="jobs-body">
                     <h1  class="desc-job-title-el"" >${list.jobTitle}</h1>
                     <p id="desc-company-el">${list.companyName}</p>
